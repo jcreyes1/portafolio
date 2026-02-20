@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Reyes Barrios - Portfolio</title>
+    <meta name="description" content="Profesional de comunicaciones y datos con 8+ años de experiencia en producción de contenido, coordinación de campañas y análisis de datos.">
+    
+    <!-- Fonts optimizados -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&family=Merriweather:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Color System */
+            --primary-green: #2F5233;
+            --secondary-green: #00A86B;
+            --accent-orange: #F7931E;
+            --shadow-green: #102B22;
+            --text-primary: #333;
+            --text-secondary: #666;
+            --text-light: #999;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-light: #f0f0f0;
+            --shadow-light: 0 5px 20px rgba(0,0,0,0.08);
+            --shadow-medium: 0 10px 40px rgba(0,0,0,0.1);
+            --shadow-heavy: 0 20px 60px rgba(0,0,0,0.15);
+            
+            /* Typography */
+            --font-primary: 'Source Sans 3', 'Inter', sans-serif;
+            --font-serif: 'Merriweather', serif;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-xxl: 4rem;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+        
+        /* Skip to content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--primary-green);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 1001;
+            border-radius: 0 0 4px 4px;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* Navigation optimizada */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(47, 82, 51, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: var(--space-sm) 0;
+            transition: transform var(--transition-medium);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        
+        .nav-logo:focus {
+            outline: 2px solid var(--accent-orange);
+            outline-offset: 2px;
+        }
+        
+        /* Hero Section optimizado */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 50%, var(--shadow-green) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: var(--space-lg);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+            line-height: 1.2;
+        }
+        
+        .hero .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-weight: 300;
+            margin-bottom: var(--space-lg);
+            opacity: 0.9;
+        }
+        
+        .hero .cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.2);
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: all var(--transition-medium);
+            border: 2px solid rgba(255,255,255,0.3);
+            min-width: 44px;
+            min-height: 44px;
+        }
+        
+        .hero .cta:hover,
+        .hero .cta:focus {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+            outline: none;
+        }
+        
+        /* Timeline Section */
+        .timeline-section {
+            background: var(--bg-light);
+            padding: var(--space-xxl) 0;
+        }
+        
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            position: relative;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 150px; /* Posición del primer dot */
+            bottom: 100px; /* Deja espacio para el último dot */
+            width: 2px;
+            background: linear-gradient(to bottom, var(--shadow-green) 0%, var(--shadow-green) 70%, transparent 100%);
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        
+        .timeline-items {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: var(--space-sm); /* Más reducido para mejor solapamiento */
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+            margin-top: calc(-1 * var(--space-lg)); /* Solapamiento más pronunciado */
+        }
+        
+        .timeline-content {
+            width: calc(50% - 30px);
+            background: var(--bg-white);
+            border-radius: 15px;
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-medium);
+            border: 1px solid var(--border-light);
+            transition: all var(--transition-medium);
+            position: relative;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 0;
+            height: 0;
+            border: 12px solid transparent;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -24px;
+            border-left-color: var(--bg-white);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -24px;
+            border-right-color: var(--bg-white);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--bg-white);
+            border: 4px solid var(--secondary-green);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            transition: all var(--transition-medium);
+        }
+        
+        .timeline-item:hover .timeline-dot {
+            background: var(--accent-orange);
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+        
+        .timeline-period {
+            background: var(--accent-orange);
+            color: white;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: var(--space-xs);
+            line-height: 1.3;
+        }
+        
+        .timeline-company {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--secondary-green);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .timeline-highlights {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .timeline-highlights li {
+            margin-bottom: var(--space-xs);
+            padding-left: 15px;
+            position: relative;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+        
+        .timeline-highlights li:before {
+            content: "→";
+            color: var(--accent-orange);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .timeline-category {
+            background: var(--primary-green);
+            color: white;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: absolute;
+            top: -10px;
+            right: 15px;
+        }
+        
+        /* Timeline Responsive */
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 30px;
+                width: 2px;
+                top: 150px; /* Consistente con desktop */
+                bottom: 80px; /* Menos espacio en mobile */
+                background: linear-gradient(to bottom, var(--shadow-green) 0%, var(--shadow-green) 60%, transparent 100%);
+            }
+            
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: row;
+                margin-left: 50px;
+                margin-bottom: var(--space-md); /* Separación en mobile para legibilidad */
+                margin-top: 0; /* Reset del solapamiento en mobile */
+            }
+            
+            .timeline-content {
+                width: 100%;
+            }
+            
+            .timeline-content::before {
+                display: none;
+            }
+            
+            .timeline-dot {
+                left: 30px;
+            }
+            
+            .timeline-container {
+                padding: 0 var(--space-md);
+            }
+        }
+        
+        /* Sections optimizadas */
+        .section {
+            padding: var(--space-xxl) clamp(1.5rem, 5vw, 4rem);
+            max-width: min(1400px, calc(100vw - 2rem));
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            color: var(--primary-green);
+        }
+        
+        /* Case Studies Grid optimizado */
+        .case-studies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            align-items: start;
+            grid-auto-rows: min-content;
+        }
+        
+        .case-card {
+            background: var(--bg-white);
+            border-radius: 20px;
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-medium);
+            transition: all var(--transition-medium);
+            border: 1px solid var(--border-light);
+            height: fit-content;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .case-card:focus-within {
+            outline: 2px solid var(--secondary-green);
+            outline-offset: 2px;
+        }
+        
+        /* Typography optimizada */
+        .case-category {
+            color: var(--secondary-green);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .case-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+            color: var(--primary-green);
+            line-height: 1.3;
+        }
+        
+        .case-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+            line-height: 1.6;
+        }
+        
+        /* Metrics optimizados con color más sutil */
+        .metric {
+            background: #B8E6D3;
+            color: #1a4d3a;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: none;
+            display: inline-block;
+            margin: 0.2rem 0.3rem 0.2rem 0;
+            box-shadow: 0 1px 3px rgba(0, 168, 107, 0.2);
+        }
+        
+        /* Gallery optimizado con nueva estructura */
+        .case-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+        
+        .gallery-item {
+            background: var(--bg-light);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all var(--transition-medium);
+            cursor: pointer;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        
+        .gallery-image {
+            width: 100%;
+            aspect-ratio: 1;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(47, 82, 51, 0.9), rgba(0, 168, 107, 0.9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all var(--transition-medium);
+        }
+        
+        .gallery-item:hover .gallery-overlay,
+        .gallery-item:focus-within .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-sm);
+            background: rgba(255,255,255,0.2);
+            border-radius: 25px;
+            backdrop-filter: blur(5px);
+            transition: all var(--transition-medium);
+            border: 1px solid rgba(255,255,255,0.3);
+            min-width: 44px;
+            min-height: 44px;
+        }
+        
+        .gallery-link:hover,
+        .gallery-link:focus {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+            color: white;
+            outline: 2px solid white;
+            outline-offset: 2px;
+        }
+        
+        .gallery-link i {
+            font-size: 0.7rem;
+        }
+        
+        .gallery-text {
+            padding: var(--space-sm);
+            background: white;
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .gallery-description {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+        
+        /* Perfect Fit Section */
+        .perfect-fit {
+            background: var(--bg-white);
+            border-radius: 15px;
+            padding: var(--space-xl) var(--space-lg);
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-light);
+        }
+        
+        .fit-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .fit-paragraph {
+            margin-bottom: var(--space-xl);
+            text-align: left;
+        }
+        
+        .fit-paragraph:last-child {
+            margin-bottom: 0;
+        }
+        
+        .fit-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .fit-paragraph p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: white;
+            padding: var(--space-xxl) var(--space-lg);
+            border-radius: 20px;
+            margin: var(--space-xl) 0;
+            text-align: center;
+        }
+        
+        /* Contact buttons optimizados */
+        .contact-buttons {
+            display: flex;
+            gap: var(--space-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: var(--space-lg);
+        }
+        
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            background: var(--secondary-green);
+            color: white;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-medium);
+            min-width: 44px;
+            min-height: 44px;
+        }
+        
+        .contact-btn:hover,
+        .contact-btn:focus {
+            background: var(--accent-orange);
+            transform: translateY(-2px);
+            outline: 2px solid white;
+            outline-offset: 2px;
+        }
+        
+        /* Typography classes */
+        .serif-emphasis {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            font-style: italic;
+            color: var(--secondary-green);
+        }
+        
+        .serif-emphasisw {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            font-style: italic;
+            color: white;
+        }
+        
+        /* Responsive optimizado */
+        @media (max-width: 1024px) {
+            .case-studies {
+                grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: var(--space-xl) var(--space-md);
+            }
+            
+            .case-studies {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+            
+            .case-gallery {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.5rem;
+            }
+            
+            /* En mobile mantener la proporción original */
+            .gallery-item {
+                aspect-ratio: auto;
+            }
+            
+            .gallery-image {
+                aspect-ratio: 10/16;
+            }
+            
+            .gallery-text {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(transparent, rgba(0,0,0,0.9));
+                color: white;
+                padding: var(--space-xs);
+            }
+            
+            .gallery-description {
+                color: white;
+                font-size: 0.75rem;
+                text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .perfect-fit {
+                padding: var(--space-lg) var(--space-md);
+            }
+            
+            .fit-title {
+                font-size: 1.1rem;
+            }
+            
+            .cta-section {
+                padding: var(--space-xl) var(--space-md);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .case-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-item {
+                aspect-ratio: 16/10;
+            }
+            
+            .gallery-image {
+                aspect-ratio: 16/10;
+            }
+        }
+        
+        /* Animations optimizadas */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            html {
+                scroll-behavior: auto;
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            .nav, .contact-buttons, .gallery-overlay {
+                display: none;
+            }
+            
+            .hero {
+                min-height: auto;
+                padding: var(--space-lg);
+            }
+            
+            .case-card {
+                break-inside: avoid;
+                margin-bottom: var(--space-lg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#cases-title" class="skip-link">Saltar al contenido principal</a>
+    
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Navegación principal">
+        <div class="nav-content">
+            <a href="#hero" class="nav-logo" aria-label="Juan Reyes Barrios - Ir al inicio">Juan Reyes Barrios</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero" class="hero">
+        <div class="hero-content">
+            <h1><span class="serif-emphasisw">Hola, soy Juan y les presento mi trabajo</span></h1>
+            <p class="subtitle">Comunicaciones, campañas y datos — 8+ años de experiencia</p>
+            <a href="#cases-title" class="cta" aria-label="Ver mi trabajo">
+                <i class="fas fa-arrow-down" aria-hidden="true"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Case Studies -->
+        <section id="cases" class="section" aria-labelledby="cases-title">
+            <h2 id="cases-title" class="section-title">Mi <span class="serif-emphasis">experiencia</span> en acción</h2>
+            <div class="case-studies">
+                
+                <!-- Caso 1: Creación de contenido -->
+                <article class="case-card">
+                    <div class="case-category">Creación de contenido</div>
+                    <h2 class="case-title">Diseño productos para medios masivos y redes sociales</h2>
+                    <p class="case-description">
+                        Genero mensajes clave a partir de información, valores y objetivos de negocio, adaptándolos según particularidades de audiencias y plataformas. Esto implica transformar conceptos complejos en contenido educativo que conecte con personas reales, desde el primer contacto hasta la conversión o fidelización.
+                    </p>
+                   
+                    <!-- Portfolio samples for this case -->
+                    <div class="case-portfolio">
+                        <div class="case-gallery" role="group" aria-label="Ejemplos de adaptación de campaña">
+                            <div class="gallery-item">
+                                <div class="gallery-image">
+                                    <img src="img/corrida.jpg" alt="Invitación a participar en corrida">
+                                    <div class="gallery-overlay">
+                                        <a href="https://www.instagram.com/p/DDP94GZRAkD/" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                            <i class="fab fa-instagram" aria-hidden="true"></i> Ver en Instagram
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="gallery-text">
+                                    <div class="gallery-description">Relato verbal y audiovisual de un reel</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <div class="gallery-image">
+                                    <img src="img/espacio-digital3.png" alt="Campaña sobre uso seguro de internet">
+                                    <div class="gallery-overlay">
+                                        <a href="https://www.unicef.org/chile/documents/un-espacio-digital-seguro" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                            <i class="fas fa-external-link-alt" aria-hidden="true"></i> Ver en UNICEF.org
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="gallery-text">
+                                    <div class="gallery-description">Adaptación a guías descargables para generar leads</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <div class="gallery-image">
+                                    <img src="img/adolescencia.jpg" alt="Campaña sobre uso seguro de internet">
+                                    <div class="gallery-overlay">
+                                        <a href="https://www.instagram.com/p/DHwEVKjv9re/?img_index=1" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                            <i class="fab fa-instagram" aria-hidden="true"></i> Ver en Instagram
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="gallery-text">
+                                    <div class="gallery-description">Carrusel de instagram sobre tema en tendencia</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <div class="gallery-image">
+                                    <img src="img/papa-todos-los.jpg" alt="Campaña sobre paternidad">
+                                    <div class="gallery-overlay">
+                                        <a href="https://www.unicef.org/chile/papá-todos-los-días" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                            <i class="fas fa-external-link-alt" aria-hidden="true"></i> Ver en UNICEF.org
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="gallery-text">
+                                    <div class="gallery-description">Narración verbal y audiovisual para landing</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <div class="gallery-image">
+                                    <img src="img/carrusel.jpg" alt="Carrusel de instagram">
+                                    <div class="gallery-overlay">
+                                        <a href="https://www.instagram.com/p/CZKtc2VNhK4/?img_index=1" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                            <i class="fab fa-instagram" aria-hidden="true"></i> Ver en Instagram
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="gallery-text">
+                                    <div class="gallery-description">Promoción de productos</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <div class="gallery-image">
+                                    <img src="img/infografia.jpg" alt="infografía">
+                                    <div class="gallery-overlay">
+                                        <a href="https://www.instagram.com/p/DKiNxcqR4rD/" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                            <i class="fab fa-instagram" aria-hidden="true"></i> Ver en Instagram
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="gallery-text">
+                                    <div class="gallery-description">Infografías para RRSS</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: var(--space-md); padding-top: var(--space-sm); border-top: 1px solid var(--border-light);">
+                        <span class="metric">Contenido vivencial "que no parezca publicidad"</span>
+                        <span class="metric">Producción in-house 90% más rápida vs agencias</span>
+                        <span class="metric">Adaptación multiplataforma estratégica</span>
+                    </div>
+                </article>
+
+                <!-- Caso 2: Comunicación y estrategia -->
+                <article class="case-card">
+                    <div class="case-category">Comunicación y estrategia</div>
+                    <h2 class="case-title">Doy forma y posición a la voz institucional</h2>
+                    <p class="case-description">
+                        Detecto voceros internos y oportunidades de colaboración con actores clave en medios, redes e instituciones. Esto se traduce en posicionar la voz institucional como referente en temas de interés público, conectando con influencers, periodistas y organizaciones para generar confianza y alcance orgánico.
+                    </p>
+                    
+                    <!-- Portfolio samples for this case -->
+                    <div class="case-portfolio">
+                        <div class="case-gallery" role="group" aria-label="Ejemplos de colaboración">
+                            <div class="gallery-item">
+                                <div class="gallery-image">
+                                    <img src="img/china.jpg" alt="Colaboración con China Bazán">
+                                    <div class="gallery-overlay">
+                                        <a href="https://www.instagram.com/p/DMQU6lnRVHd/" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                            <i class="fab fa-instagram" aria-hidden="true"></i> Ver en Instagram
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="gallery-text">
+                                    <div class="gallery-description">Colaboración con China Bazán</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <div class="gallery-image">
+                                    <img src="img/daniel.jpg" alt="Campaña sobre uso seguro de internet">
+                                    <div class="gallery-overlay">
+                                        <a href="https://www.instagram.com/p/DK2qF49RJtg/" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                            <i class="fab fa-instagram" aria-hidden="true"></i> Ver en Instagram
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="gallery-text">
+                                    <div class="gallery-description">Colaboración con Daniel Silva</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <div class="gallery-image">
+                                    <img src="img/tere.jpg" alt="Campaña sobre uso seguro de internet">
+                                    <div class="gallery-overlay">
+                                        <a href="https://www.instagram.com/p/Cz4QflHxm5C/" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                            <i class="fab fa-instagram" aria-hidden="true"></i> Ver en Instagram
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="gallery-text">
+                                    <div class="gallery-description">Vocería de Teresa Paneque</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <div class="gallery-image">
+                                    <img src="img/naour.jpg" alt="Campaña sobre paternidad">
+                                    <div class="gallery-overlay">
+                                        <a href="https://www.instagram.com/p/C-lmv9KoI-p/" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                            <i class="fab fa-instagram" aria-hidden="true"></i> Ver en Instagram
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="gallery-text">
+                                    <div class="gallery-description">Colaboración con NTV</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <div class="gallery-image">
+                                    <img src="img/carito.jpg" alt="Carrusel de instagram">
+                                    <div class="gallery-overlay">
+                                        <a href="https://www.instagram.com/p/DJFJexXJyI7/" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                            <i class="fab fa-instagram" aria-hidden="true"></i> Ver en Instagram
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="gallery-text">
+                                    <div class="gallery-description">Vocería sobre vacunación</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <div class="gallery-image">
+                                    <img src="img/gabriela.jpg" alt="infografía">
+                                    <div class="gallery-overlay">
+                                        <a href="https://www.instagram.com/p/DGu8DI2JX4A//" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                            <i class="fab fa-instagram" aria-hidden="true"></i> Ver en Instagram
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="gallery-text">
+                                    <div class="gallery-description">Edición de video Agencia 1984</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: var(--space-md); padding-top: var(--space-sm); border-top: 1px solid var(--border-light);">
+                        <span class="metric">7 rostros de medios contactados en 2025</span>
+                        <span class="metric">Conexiones en cooperación internacional e instituciones del Estado</span>
+                        <span class="metric">Experiencia en eventos y conversatorios</span>
+                    </div>
+                </article>
+
+                <!-- Caso 3: Performance -->
+                <article class="case-card">
+                    <div class="case-category">Performance</div>
+                    <h2 class="case-title">Gestiono recursos y datos para tomar decisiones</h2>
+                    <p class="case-description">
+                        Implemento workflows para producir campañas digitales in-house y con externos, monitoreando resultados y retorno. Combino gestión operacional con análisis de datos para optimizar el rendimiento de cada iniciativa y establecer sistemas escalables que soporten el crecimiento.
+                    </p>
+                    
+                    <div style="margin-top: var(--space-md); padding-top: var(--space-sm); border-top: 1px solid var(--border-light);">
+                        <span class="metric">Briefings para videístas, fotógrafos y agencias</span>
+                        <span class="metric">Herramientas de IA para dashboards y landings</span>
+                        <span class="metric">Monitoreo de medios via APIs y RRSS</span>
+                        <span class="metric">Gestión Meta y Google Ads con optimización</span>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="timeline-section" aria-labelledby="timeline-title">
+            <div class="timeline-container">
+                <h2 id="timeline-title" class="section-title">Mi trayectoria <span class="serif-emphasis">profesional</span></h2>
+                
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-items">
+                    
+                    <!-- UNICEF Chile -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-category">Actual</div>
+                            <div class="timeline-period">2022 - 2025</div>
+                            <h3 class="timeline-title">Design and Graphic Assistant</h3>
+                            <div class="timeline-company">UNICEF Chile</div>
+                            <ul class="timeline-highlights">
+                                <li>Lidero la producción de contenidos digitales gestionando presupuestos para implementar campañas de paid media</li>
+                                <li>Reduje timeline de creación de 2 semanas a mismo día, optimizando workflows internos</li>
+                                <li>Alcancé 7M+ cuentas a través de campañas estratégicas en redes sociales</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <!-- Diploma Data Science -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-category">Formación</div>
+                            <div class="timeline-period">2025</div>
+                            <h3 class="timeline-title">Diplomado en Ciencia de Datos orientado a Machine Learning</h3>
+                            <div class="timeline-company">Universidad de Santiago de Chile (USACH)</div>
+                            <ul class="timeline-highlights">
+                                <li>Análisis exploratorio de datos (EDA) y visualización con Python y Pandas</li>
+                                <li>Modelamiento predictivo: regresión lineal, series de tiempo y modelos de churn</li>
+                                <li>Aplicación de técnicas de machine learning para interpretar comportamiento de usuarios</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <!-- Diploma Infographics -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-category">Educación</div>
+                            <div class="timeline-period">2023</div>
+                            <h3 class="timeline-title">Diploma en Infografía</h3>
+                            <div class="timeline-company">Pontificia Universidad Católica de Chile</div>
+                            <ul class="timeline-highlights">
+                                <li>Especialización en visualización de datos y diseño de información</li>
+                                <li>Enfoque en transformar datasets complejos en narrativas visuales accesibles</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <!-- Visual Communication Instructor -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-category">Docencia</div>
+                            <div class="timeline-period">2021 - 2022</div>
+                            <h3 class="timeline-title">Instructor de Comunicación Visual</h3>
+                            <div class="timeline-company">Corporación Cultural de Puente Alto</div>
+                            <ul class="timeline-highlights">
+                                <li>Diseñé curriculum integral cubriendo fundamentos de comunicación digital</li>
+                                <li>Estructuré clases sobre desafíos contemporáneos del diseño digital</li>
+                                <li>Recibí feedback excelente por metodología pedagógica empática y práctica</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <!-- Freelance Experience -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-category">Freelance</div>
+                            <div class="timeline-period">2018 - 2022</div>
+                            <h3 class="timeline-title">Diseñador Freelance</h3>
+                            <div class="timeline-company">Chile & Argentina</div>
+                            <ul class="timeline-highlights">
+                                <li>Desarrollé campañas para clientes como La Roche-Posay y Santillana</li>
+                                <li>Gestioné producción visual end-to-end manteniendo estándares de calidad</li>
+                                <li>Coordiné proyectos internacionales cumpliendo deadlines ajustados</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <!-- Art Direction Course -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-category">Formación</div>
+                            <div class="timeline-period">2019</div>
+                            <h3 class="timeline-title">Curso Intensivo de Dirección de Arte</h3>
+                            <div class="timeline-company">Brother Escuela de Creativos, Buenos Aires</div>
+                            <ul class="timeline-highlights">
+                                <li>Entrenamiento intensivo en creatividad publicitaria</li>
+                                <li>Enfoque en dirección de arte y comunicación digital</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <!-- Outreach Coordinator -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-category">Inicio</div>
+                            <div class="timeline-period">2016 - 2017</div>
+                            <h3 class="timeline-title">Coordinador de Comunicaciones</h3>
+                            <div class="timeline-company">Corporación Cultural de Puente Alto</div>
+                            <ul class="timeline-highlights">
+                                <li>Construí base de datos de 200+ organizaciones culturales</li>
+                                <li>Desarrollé sistemas de identidad visual aún en uso</li>
+                                <li>Creé propuestas gráficas reconocidas por el gobierno municipal</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <!-- Bachelor's Degree -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-category">Educación</div>
+                            <div class="timeline-period">2012 - 2016</div>
+                            <h3 class="timeline-title">Licenciatura en Artes y Humanidades (Diseño)</h3>
+                            <div class="timeline-company">Pontificia Universidad Católica de Chile</div>
+                            <ul class="timeline-highlights">
+                                <li>Minor doble en Psicología y Políticas Públicas</li>
+                                <li>Co-autor de investigación sobre acceso universitario y equidad</li>
+                                <li>Base interdisciplinaria combinando diseño, comportamiento humano y política pública</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section" aria-labelledby="perfect-fit-title">
+            <div class="perfect-fit">
+                <h2 id="perfect-fit-title" class="section-title">Mi forma de <span class="serif-emphasis">trabajar</span></h2>
+                
+                <div class="fit-content">
+                    <div class="fit-paragraph">
+                        <h3 class="fit-title">Creatividad con propósito</h3>
+                        <p>Tengo experiencia y preparación para adaptar temas complejos en contenido accesible, utilizando diversas herramientas de producción en formatos ad-hoc, sin perder de vista la funcionalidad y el carácter narrativo de cada pieza.</p>
+                    </div>
+                    
+                    <div class="fit-paragraph">
+                        <h3 class="fit-title">Visión estratégica y relacional</h3>
+                        <p>Monitoreo el entorno buscando oportunidades para conectar organizaciones con actores institucionales, medios e influencers relevantes. De la misma forma, genero instancias para fortalecer comunidades orgánicas y relaciones de largo plazo.</p>
+                    </div>
+                    
+                    <div class="fit-paragraph">
+                        <h3 class="fit-title">Orientación a datos y sistemas</h3>
+                        <p>Mis decisiones se enmarcan en evidencia y en principios de experiencia de usuario. Mi forma de trabajar es estructurada: el contenido se inserta en sistemas de diseño y los resultados se miden para aprender y mejorar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="section" aria-labelledby="cta-title">
+            <div class="cta-section">
+                <h2 id="cta-title" class="section-title" style="color: white;">Conversemos</h2>
+                
+                <div class="contact-buttons">
+                    <a href="/cdn-cgi/l/email-protection#98f2fbeafde1fdeba9d8edfbb6fbf4" class="contact-btn" aria-label="Enviar email a Juan">
+                        <i class="fas fa-envelope" aria-hidden="true"></i> Email
+                    </a>
+                    <a href="https://linkedin.com/in/juanreyesbarrios" class="contact-btn" target="_blank" rel="noopener noreferrer" aria-label="Ver perfil de LinkedIn de Juan">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
+                    </a>
+                    <a href="https://behance.net/juanreyesbarrios" class="contact-btn" target="_blank" rel="noopener noreferrer" aria-label="Ver portfolio de Juan en Behance">
+                        <i class="fab fa-behance" aria-hidden="true"></i> Behance
+                    </a>
+                    <a href="tel:+56920323788" class="contact-btn" aria-label="Llamar a Juan por WhatsApp">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer style="background: #f8f9fa; padding: 2rem; text-align: center; border-top: 1px solid #eee;">
+        <p style="color: #666; font-size: 0.9rem; margin: 0;">
+            Esta página fue creada con ayuda de Claude 4.0 en la arquitectura de información y layout, pero el contenido fue creado por Juan.
+        </p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Hide/show navigation on scroll with improved performance
+        let lastScrollTop = 0;
+        let ticking = false;
+        const nav = document.querySelector('.nav');
+        
+        function updateNav() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                nav.style.transform = 'translateY(0)';
+            }
+            lastScrollTop = scrollTop;
+            ticking = false;
+        }
+        
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(updateNav);
+                ticking = true;
+            }
+        });
+
+        // Improved intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, observerOptions);
+
+        // Observe all case cards with a small delay for performance
+        setTimeout(() => {
+            document.querySelectorAll('.case-card').forEach(card => {
+                observer.observe(card);
+            });
+        }, 100);
+
+        // Keyboard navigation improvements
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('using-keyboard');
+            }
+        });
+
+        document.ad
